@@ -18,7 +18,7 @@ NPM 6+
 INSTALACIÓN
 
 1.Clona este repositorio:
-git clone https://github.com/tuusuario/tu-repositorio.git
+git clone https://github.com/emmaenk/restAPI.git
 
 2.Instala las dependencias:
 cd tu-repositorio

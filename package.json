@@ -4,9 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev" : "set DEBUG=app:main & nodemon index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^4.3.5",
+    "dotenv": "^16.4.5",
+    "excel4node": "^1.8.2",
+    "express": "^4.19.2",
+    "http-errors": "^2.0.0",
+    "mongodb": "^6.8.0"
+  }
 }

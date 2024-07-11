@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev" : "set DEBUG=app:main & nodemon index.js"
-  },
+    "dev": "set DEBUG=app:* && nodemon index.js"
+      },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -16,5 +16,8 @@
     "express": "^4.19.2",
     "http-errors": "^2.0.0",
     "mongodb": "^6.8.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

@@ -8,14 +8,15 @@ const { MongoClient, Collection } = require("mongodb");
 const debug = require("debug")("app:module-database");
 
 //desesctructuración
-const {Config}= require('.../config/index');
+const {Config}= require('../config/index');
 
 var connection= null;//variable de conexión global
-module.exports.Database = (Collection) => new Promise((resolve, reject) => {
+module.exports.Database = (collection) => 
+    new Promise(async (resolve, reject) => {
     try {//código asincrono con await y resolución de promesas
         if (!connection) {
             const client= new MongoClient(Config.mongoUri);//recibe parametro para conectar a la base de datos
-            connection = await.client.connect();//asincrona
+            connection = await client.connect();//asincrona
             //si generamos muchas conexiones el servidor se saturara
             //singleton para evitar que genere nueva conexión a cada instante, esto identifica que se utilice la misma conexión existente y no nuevas
             //se hacen todas las peticiones en la misma conexión
@@ -24,7 +25,7 @@ module.exports.Database = (Collection) => new Promise((resolve, reject) => {
         debug("Reutilizando conexión");
         //si ya existe una conexión a la base de datos almacenar en la constante db
         const db = connection.db(Config.mongoDbname);//recibe el nombre de la base de datos de la que ya existe conexión
-        resolve(db.Collection(Collection)) ;
+        resolve(db.collection(collection)) ;
     } catch (error) {
         reject(error);
     }

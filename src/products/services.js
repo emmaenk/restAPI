@@ -17,7 +17,7 @@ const getAll = async () => {
 const getById = async (id) => {
   //realizar busquedas con base en el id del producto
   const collection = await Database(COLLECTION);
-  return collection.findOne({ _id: ObjectId(id) }); //consulta para realizar la busqueda, buscando por id
+  return collection.findOne({ _id: new ObjectId(id) }); //consulta para realizar la busqueda, buscando por id
 };
 
 

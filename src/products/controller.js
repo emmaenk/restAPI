@@ -16,7 +16,18 @@ module.exports.ProductsController={
           }
      },//lista toda la lista de productos
 
-     getProduct: (req,res)=>{},//lista solo un producto y sus datos
+//lista solo un producto y sus datos
+     getProduct: async (req,res)=>{
+
+         try {
+          const {params: {id}} =req;
+          let product = await ProductsService.getById(id);
+          res.json(product);
+         } catch (error) {
+          debug(error);
+          res.status(500).json({ message: "Internal Server Error" });
+         }
+     },
 
      //da de alta un nuevo producto
      createProducts: async (req,res)=>{

@@ -3,7 +3,7 @@
  */
 
 // desestructuración
-const { MongoClient, Collection } = require("mongodb");
+const { MongoClient, collection } = require("mongodb");
 //exportara la funcion que nos devuelva la funci
 const debug = require("debug")("app:module-database");
 

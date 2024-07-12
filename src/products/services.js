@@ -9,7 +9,7 @@ const COLLECTION = "products";
 
 //traera todos los datos de la base de datos
 const getAll = async () => {
-  const collection = await Database("COLLECTION"); //se llama la constante COLLECTION
+  const collection = await Database(COLLECTION); //se llama la constante COLLECTION
   //metodo find, se utilizará to Array para pasar el resultado a una cadena
   return await collection.find({}).toArray();
 };

@@ -14,9 +14,14 @@ module.exports.ProductsAPI=(app)=>{
 
     router//rutas donde se accedera via web
     .get("/",ProductsController.getProducts)//mostrara el index general - localhost:3000/api/products/
+    .get("/report", ProductsController.generateReport)//se debe de coloar andes de /:id por que si no al momento de ejecutar la consulta desde postman lanzará un error 500 internal server error y así se soluciona, ya que entra primero la ruta de reports
     .get("/:id",ProductsController.getProduct)//mostrara el contenido especifico por id -localhost:3000/api/products/0000
     .post("/",ProductsController.createProducts)//dará de alta un nuevo producto
-    
+    //update
+    .put("/:id",ProductsController.updateProduct)
+    //delete
+    .delete('/:id',ProductsController.EliminarProducto);
+
     app.use("/api/products",router);
     //aqui se menciona que la app utilizará route para funcionar
     /**
